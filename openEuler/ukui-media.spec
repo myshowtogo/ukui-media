@@ -63,32 +63,26 @@ make
 rm -rf $RPM_BUILD_ROOT
 make DESTDIR=$RPM_BUILD_ROOT install
 
-cp -r %{_builddir}/%{name}-%{version}/ukui-volume-control-applet-qt/build/ukui-volume-control-applet-qt %{buildroot}/usr/bin/
-# cp -r %{_builddir}/%{name}-%{version}/ukui-volume-control-applet-qt/ukui-media-control-led/build/ukui-media-control-led %{buildroot}/usr/bin/
+install -D %{_builddir}/%{name}-%{version}/ukui-volume-control-applet-qt/build/ukui-volume-control-applet-qt %{buildroot}/usr/bin/
 
-mkdir -p %{buildroot}/usr/share/ukui-media/translations
-cp -r %{_builddir}/%{name}-%{version}/ukui-volume-control-applet-qt/translations/*.qm %{buildroot}/usr/share/ukui-media/translations/
+install -D %{_builddir}/%{name}-%{version}/ukui-volume-control-applet-qt/translations/*.qm %{buildroot}/usr/share/ukui-media/translations/
 
-mkdir -p %{buildroot}/usr/share/ukui-media/img
-cp -r %{_builddir}/%{name}-%{version}/ukui-volume-control-applet-qt/data/img/* %{buildroot}/usr/share/ukui-media/img/
+install -D %{_builddir}/%{name}-%{version}/ukui-volume-control-applet-qt/data/img/* %{buildroot}/usr/share/ukui-media/img/
 
-mkdir -p %{buildroot}/usr/share/ukui-media/qss
-cp -r %{_builddir}/%{name}-%{version}/ukui-volume-control-applet-qt/data/qss/* %{buildroot}/usr/share/ukui-media/qss/
+install -D %{_builddir}/%{name}-%{version}/ukui-volume-control-applet-qt/data/qss/* %{buildroot}/usr/share/ukui-media/qss/
 
-cp -r %{_builddir}/%{name}-%{version}/ukui-volume-control-applet-qt/data/sounds/ukui-sound.xml %{buildroot}/usr/share/ukui-media/sounds
-cp -r %{_builddir}/%{name}-%{version}/ukui-volume-control-applet-qt/data/sounds/ubuntu-sound.xml %{buildroot}/usr/share/ukui-media/sounds
-cp -r %{_builddir}/%{name}-%{version}/ukui-volume-control-applet-qt/data/sounds/index.theme %{buildroot}/usr/share/sounds/ukui
-cp -r %{_builddir}/%{name}-%{version}/ukui-volume-control-applet-qt/data/sounds/*.ogg %{buildroot}/usr/share/ukui-media/sounds
+install -D %{_builddir}/%{name}-%{version}/ukui-volume-control-applet-qt/data/sounds/ukui-sound.xml %{buildroot}/usr/share/ukui-media/sounds
+install -D %{_builddir}/%{name}-%{version}/ukui-volume-control-applet-qt/data/sounds/ubuntu-sound.xml %{buildroot}/usr/share/ukui-media/sounds
+install -D %{_builddir}/%{name}-%{version}/ukui-volume-control-applet-qt/data/sounds/index.theme %{buildroot}/usr/share/sounds/ukui
+install -D %{_builddir}/%{name}-%{version}/ukui-volume-control-applet-qt/data/sounds/*.ogg %{buildroot}/usr/share/ukui-media/sounds
 
-cp -r %{_builddir}/%{name}-%{version}/data/org.ukui.sound.gschema.xml %{buildroot}/usr/share/glib-2.0/schemas
+install -D %{_builddir}/%{name}-%{version}/data/org.ukui.sound.gschema.xml %{buildroot}/usr/share/glib-2.0/schemas
 
-mkdir -p %{buildroot}/usr/share/ukui-media/scripts
-cp -r %{_builddir}/%{name}-%{version}/scripts/detection_output_mode.sh %{buildroot}/usr/share/ukui-media/scripts
+install -D %{_builddir}/%{name}-%{version}/scripts/detection_output_mode.sh %{buildroot}/usr/share/ukui-media/scripts
 
-cp -r %{_builddir}/%{name}-%{version}/data/org.ukui.media.sound.gschema.xml %{buildroot}/usr/share/glib-2.0/schemas
+install -D %{_builddir}/%{name}-%{version}/data/org.ukui.media.sound.gschema.xml %{buildroot}/usr/share/glib-2.0/schemas
 
-mkdir -p %{buildroot}/usr/lib/systemd/system
-cp -r %{_builddir}/%{name}-%{version}/data/ukui-media-control-mute-led.service %{buildroot}/usr/lib/systemd/system
+install -D %{_builddir}/%{name}-%{version}/data/ukui-media-control-mute-led.service %{buildroot}/usr/lib/systemd/system
 
 %clean
 rm -rf $RPM_BUILD_ROOT
