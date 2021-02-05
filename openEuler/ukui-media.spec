@@ -63,13 +63,16 @@ make
 rm -rf $RPM_BUILD_ROOT
 make DESTDIR=$RPM_BUILD_ROOT install
 
-install -D %{_builddir}/%{name}-%{version}/ukui-volume-control-applet-qt/build/ukui-volume-control-applet-qt %{buildroot}/usr/bin/
+install -D %{_builddir}/%{name}-%{version}/ukui-volume-control-applet-qt/build/ukui-volume-control-applet-qt %{buildroot}/usr/bin
 
-install -D %{_builddir}/%{name}-%{version}/ukui-volume-control-applet-qt/translations/*.qm %{buildroot}/usr/share/ukui-media/translations/
+mkdir -p %{buildroot}/usr/share/ukui-media/translations
+install -D %{_builddir}/%{name}-%{version}/ukui-volume-control-applet-qt/translations/*.qm %{buildroot}/usr/share/ukui-media/translations
 
-install -D %{_builddir}/%{name}-%{version}/ukui-volume-control-applet-qt/data/img/* %{buildroot}/usr/share/ukui-media/img/
+mkdir -p %{buildroot}/usr/share/ukui-media/img
+install -D %{_builddir}/%{name}-%{version}/ukui-volume-control-applet-qt/data/img/* %{buildroot}/usr/share/ukui-media/img
 
-install -D %{_builddir}/%{name}-%{version}/ukui-volume-control-applet-qt/data/qss/* %{buildroot}/usr/share/ukui-media/qss/
+mkdir -p %{buildroot}/usr/share/ukui-media/qss
+install -D %{_builddir}/%{name}-%{version}/ukui-volume-control-applet-qt/data/qss/* %{buildroot}/usr/share/ukui-media/qss
 
 install -D %{_builddir}/%{name}-%{version}/ukui-volume-control-applet-qt/data/sounds/ukui-sound.xml %{buildroot}/usr/share/ukui-media/sounds
 install -D %{_builddir}/%{name}-%{version}/ukui-volume-control-applet-qt/data/sounds/ubuntu-sound.xml %{buildroot}/usr/share/ukui-media/sounds
@@ -78,10 +81,12 @@ install -D %{_builddir}/%{name}-%{version}/ukui-volume-control-applet-qt/data/so
 
 install -D %{_builddir}/%{name}-%{version}/data/org.ukui.sound.gschema.xml %{buildroot}/usr/share/glib-2.0/schemas
 
+mkdir -p %{buildroot}/usr/share/ukui-media/scripts
 install -D %{_builddir}/%{name}-%{version}/scripts/detection_output_mode.sh %{buildroot}/usr/share/ukui-media/scripts
 
 install -D %{_builddir}/%{name}-%{version}/data/org.ukui.media.sound.gschema.xml %{buildroot}/usr/share/glib-2.0/schemas
 
+mkdir -p %{buildroot}/usr/lib/systemd/system
 install -D %{_builddir}/%{name}-%{version}/data/ukui-media-control-mute-led.service %{buildroot}/usr/lib/systemd/system
 
 %clean
